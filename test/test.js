@@ -1,3 +1,5 @@
 QUnit.test("hello test", function(assert) {
-  assert.ok( 1 == '1', 'passed !');
+  "use strict";
+
+  assert.ok( 1 === '1', 'passed !');
 });
