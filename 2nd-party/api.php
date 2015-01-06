@@ -1,6 +1,6 @@
 <?php
 
-$logfile = '/usr/local/var/log/nginx/3rd-party-api.log';
+$logfile = '/usr/local/var/log/nginx/2nd-party-api.log';
 $log = new \SplFileObject($logfile, 'w+');
 
 $log->fwrite(var_export($_SERVER, true));
