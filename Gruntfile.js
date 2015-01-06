@@ -33,6 +33,7 @@ module.exports = function(grunt) {
         // Environments
         jquery: true,
         qunit: true,
+        devel: true,
         globals: {
           jQuery: false,
           sinon: false
