@@ -1,10 +1,9 @@
 /**
- * 2nd-party app.js
+ * 3rd-party app.js
  */
 $(function() {
   "use strict";
 
-  //var url = 'http://2nd-party.local:8080/api.php';
   var url = 'http://3rd-party.local:8081/api.php';
 
   $.ajax({
