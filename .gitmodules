@@ -1,0 +1,3 @@
+[submodule "vendor/easyXDM"]
+	path = vendor/easyXDM
+	url = https://github.com/oyvindkinsey/easyXDM.git
