@@ -16,7 +16,28 @@ $(function() {
     }
   });
 
-  socket.postMessage("Hello 2nd !");
-  socket.postMessage(document.cookie);
+  //socket.postMessage("Hello 2nd !");
+  //socket.postMessage(document.cookie);
+
+  var rpc = new YJ.easyXDM.Rpc(
+      {},
+      {
+        local: {
+          providerLog: function(var1, var2, var3, onSuccess, onFailure) {
+            try {
+              // here is ajax to api
+              var response = {'aaa': 'bbb'};
+              onSuccess(response);
+            } catch (exception) {
+              onFailure(exception.message);
+            }
+          }
+        },
+        remote: {
+          consumerLog: {}
+        }
+      }
+  );
+
 
 });
