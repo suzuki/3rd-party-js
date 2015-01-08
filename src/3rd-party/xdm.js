@@ -12,8 +12,11 @@ $(function() {
   var socket = new YJ.easyXDM.Socket({
     remote: 'http://3rd-party.local:8081/xdm.html',
     onMessage: function(message, origin) {
+      console.log("I'm consumer !");
       console.log("Recieved: ", message, " from origin: ", origin);
     }
   });
 
+  socket.postMessage("Hello world");
+  socket.postMessage(document.cookie);
 });

@@ -11,8 +11,12 @@ $(function() {
 
   var socket = new YJ.easyXDM.Socket({
     onMessage: function(message, origin) {
+      console.log("I'm provider !");
       console.log("Recieved: ", message, " from origin: ", origin);
     }
   });
+
+  socket.postMessage("Hello 2nd !");
+  socket.postMessage(document.cookie);
 
 });
