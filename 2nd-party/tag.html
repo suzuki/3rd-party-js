@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>2nd party TAG test</title>
+  </head>
+  <body>
+    <h1>2nd parth TAG test</h1>
+    <!-- TAG START -->
+    <script type="text/JavaScript">
+      (function() {
+        "use strict";
+        var tag = document.createElement('script');
+        var s = document.getElementsByTagName('script')[0];
+        tag.async = true;
+        tag.src = '//3rd-party-cdn.local:8082/js/3rd-party-cdn/app.js';
+        s.parentNode.insertBefore(tag, s);
+      }());
+    </script>
+    <!-- TAG END -->
+  </body>
+</html>
