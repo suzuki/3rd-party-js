@@ -2,7 +2,33 @@
  * 3rd-party-cdn
  * app.js
  */
+(function(window) {
+  'use strict';
 
+  function loadScript(url, callback) {
+    var script = window.document.createElement('script');
+    script.async = true;
+    script.src = url;
+    var entry = window.document.getElementsByTagName('script')[0];
+    entry.parentNode.insertBefore(script, entry);
+
+    script.onload = script.onreadystatechange = function() {
+      var rdyState = script.readyState;
+
+      if (!rdyState || /complete|loaded/.test(script.readyState)) {
+        callback();
+        script.onload = null;
+        script.onreadystatechange = null;
+      }
+    };
+  }
+
+  // load yjm
+  loadScript('//3rd-party-cdn.local:8082/js/yjm.js', function() {});
+}(this));
+
+
+/*
 var YJM = (function(window, undefined) {
   "use strict";
 
@@ -50,3 +76,4 @@ var YJM = (function(window, undefined) {
   return YJM;
 
 })(window);
+*/

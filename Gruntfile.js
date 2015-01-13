@@ -16,7 +16,8 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
+      //files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
+      files: ['Gruntfile.js', 'src/**/app.js', 'test/**/*.js', 'src/**/yjm.js', 'src/modules/*.js'],
       options: {
         // Enforcing
         indent: 4,
@@ -43,6 +44,19 @@ module.exports = function(grunt) {
     qunit: {
       all: ['test/**/*.html']
     },
+    concat: {
+      options: {
+
+      },
+      dist: {
+        src: [
+          'src/yjm.js',
+          'src/modules/loader.js',
+          'src/modules/readpoint.js'
+        ],
+        dest: 'dist/yjm.js'
+      }
+    },
     watch: {
       files: ['<%= jshint.files %>'],
       tasks: ['jshint', 'qunit']
@@ -50,6 +64,8 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-connect');
+
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-watch');

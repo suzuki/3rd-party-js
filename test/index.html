@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>QUnit Test</title>
+    <link rel="stylesheet" href="../node_modules/qunitjs/qunit/qunit.css">
+    <script src="../node_modules/qunitjs/qunit/qunit.js"></script>
+    <script src="../node_modules/sinon/pkg/sinon.js"></script>
+    <script src="../node_modules/sinon-qunit/lib/sinon-qunit.js"></script>
+  </head>
+  <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture">
+      <div id="target-content"></div>
+    </div>
+
+    <script src="../src/yjm.js"></script>
+    <script src="./yjm.test.js"></script>
+
+    <script src="../src/modules/loader.js"></script>
+    <script src="./modules/loader.test.js"></script>
+
+    <script src="../src/modules/readpoint.js"></script>
+    <script src="./modules/readpoint.test.js"></script>
+  </body>
+</html>
