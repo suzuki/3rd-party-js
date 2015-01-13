@@ -24,6 +24,14 @@ $(function() {
   //socket.postMessage("Hello world");
   //socket.postMessage(document.cookie);
 
+
+  var logger = function(str) {
+    var d = document.createElement('div');
+    d.textContent = str;
+    var body = document.querySelector('body');
+    body.appendChild(d);
+  }
+
   var rpc = new YJ.easyXDM.Rpc(
     {
       remote: YJ.remoteUrl
@@ -32,8 +40,10 @@ $(function() {
       local: {
         consumerLog: function(message, onSuccess, onFailure) {
           try {
-            console.log("Consumer: I got a message:");
-            console.log(message);
+            //console.log("Consumer: I got a message:");
+            //console.log(message);
+            logger("Consumer: I got a message:");
+            logger(JSON.stringify(message));
             onSuccess();
           } catch (exception) {
             onFailure();
@@ -49,9 +59,12 @@ $(function() {
   function onSuccess(response) {
     console.log("Consumer: It success!!");
     console.log(response);
+    logger("Consumer: It success!!");
+    logger(JSON.stringify(response));
   }
   function onFailure() {
     console.log("Consumer: FAILURE");
+    logger("Consumer: FAILURE");
   }
 
   //console.log(rpc.origin);

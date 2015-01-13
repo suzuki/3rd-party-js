@@ -9,10 +9,20 @@ $(function() {
 
   YJ.easyXDM = easyXDM.noConflict('YJ');
 
+  var logger = function(str) {
+    var d = document.createElement('div');
+    d.textContent = str;
+    var body = document.querySelector('body');
+    body.appendChild(d);
+  }
+
   var socket = new YJ.easyXDM.Socket({
     onMessage: function(message, origin) {
       console.log("I'm provider !");
       console.log("Recieved: ", message, " from origin: ", origin);
+
+      logger("I'm provider !");
+      logger("Recieved: ", message, " from origin: ", origin);
     }
   });
 
@@ -35,6 +45,7 @@ $(function() {
           dump: function(message, onSuccess, onFailure) {
             try {
               console.log(message);
+              logger(JSON.stringify(message));
               var response = {};
               onSuccess(response);
             } catch (exception) {
